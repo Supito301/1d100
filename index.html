@@ -1,14 +1,37 @@
 <html>
 	<head>
 		<title>Simply 1D100!</title>
+		<link href="style.css" rel="stylesheet">
 	</head>
   
 	<body>
-		<input type="button" class="btn" value="ROLL THE DICE" onclick="getDice1();">
+		<center><input type="button" class="btn" value="ROLL THE DICE" onclick="roll();"></center>
+		
+		<br>
+		<br>
+		<br>
+		
+		<siz><center><span id="dice"></span></center></siz>
 		
 		<script>
+			count = 20;
+			mSec = 50;
+			
 			function roll() {
+				var i = 0;
+				var dice1;
 				
+				dice = Math.floor(Math.random() * 100);
+				document.getElementById('dice').innerHTML = (dice + 1);
+				count--;
+
+				if(count >= 1) {
+					tim = setTimeout("roll()", mSec)
+				}
+
+				if(count == 0) {
+					count = 20;
+				}
 			}
 		</script>
 		
