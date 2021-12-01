@@ -12,25 +12,43 @@
 		<br>
 		
 		<siz><center><span id="dice"></span></center></siz>
+
+		<br>
+		<br>
+		<br>
+		
+		<center><b><i><span id="result"></i></b></span></center>
+		
+		<right><span id="log"></span></right>
 		
 		<script>
 			count = 40;
 			mSec = 20;
 			
 			function roll() {
-				var i = 0;
 				var dice1;
+
+				document.getElementById('result').innerHTML = ("");
 				
 				dice = Math.floor(Math.random() * 100);
 				document.getElementById('dice').innerHTML = (dice + 1);
 				count--;
 
 				if(count >= 1) {
-					tim = setTimeout("roll()", mSec)
+					tim = setTimeout("roll()", mSec);
 				}
 
 				if(count == 0) {
 					count = 40;
+
+					if((dice + 1) <= 5) {
+						document.getElementById('result').innerHTML = ("<font color = #32CD32>CRITICAL!</font>");
+
+					} else if((dice + 1) >= 96) {
+						document.getElementById('result').innerHTML = ("<font color = #FF0000>FUMBLE!</font>");
+
+					}
+
 				}
 			}
 		</script>

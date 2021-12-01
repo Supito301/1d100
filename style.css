@@ -1,4 +1,16 @@
 siz {
-	font-size: 100px
+	font-size: 100px;
+
+}
+
+right {
+	text-align: right;
+
+}
+
+.btn {
+	width: 300px;
+	padding: 10px;
+	cursor: pointer;
 
 }
