@@ -19,6 +19,8 @@
 		
 		<center><b><i><span id="result"></span></i></b></center>
 		
+		<right><span id="counters"></right>	
+		
 		<right><span id="log"></span></right>
 		
 		<script>
@@ -29,6 +31,10 @@
 			fu = 0;
 			cr1 = 0;
 			f100 = 0;
+			fs = 0;
+			f100s = 0;
+			cs = 0;
+			c1s = 0;
 
 			function roll() {
 				var dice;
@@ -52,9 +58,12 @@
 						
 						if((dice + 1) == 1) {
 							cr1 = 1;
+							c1s++;
+							cs++;
 
 						} else {
 							cr = 1;
+							cs++;
 
 						}
 
@@ -63,9 +72,12 @@
 
 						if((dice + 1) == 100) {
 							f100 = 1;
+							f100s++;
+							fs++;
 
 						} else {
 							fu = 1;
+							fs++;
 
 						}
 					}
@@ -94,6 +106,7 @@
 					}
 
 					document.getElementById('log').insertBefore(dicelog, log.firstChild);
+					document.getElementById('counters').innerHTML = ("1 Criticals: " + c1s + ", Criticals: " + cs "<br>100 Fumbles: " + f100s + ", Fumbles: " + fs)
 
 				}
 			}
