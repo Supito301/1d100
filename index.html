@@ -11,15 +11,15 @@
 		<br>
 		<br>
 		
-		<siz><center><span id="dice"></span></center></siz>
+		<siz><center><span id="dice">00</span></center></siz>
 
 		<br>
 		<br>
 		<br>
 		
-		<center><b><i><span id="result"></span></i></b></center>
+		<center><b><i><span id="result">Click "ROLL THE DICE" button to roll the 1D100 dice!</span></i></b></center>
 		
-		<right><span id="counters"></right>	
+		<right><span id="counters">1 Criticals: 0, Criticals: 0<br>100 Fumbles: 0, Fumbles: 0</span></right>
 		
 		<right><span id="log"></span></right>
 		
@@ -39,7 +39,7 @@
 			function roll() {
 				var dice;
 
-				document.getElementById('result').innerHTML = (" ");
+				document.getElementById('result').innerHTML = ("ROLLING...");
 				
 				dice = Math.floor(Math.random() * 100);
 				document.getElementById('dice').innerHTML = (dice + 1);
@@ -80,6 +80,10 @@
 							fs++;
 
 						}
+
+					} else {
+						document.getElementById('result').innerHTML = ("ROLLED " + (dice + 1) + "!");
+
 					}
 
 					var dicelog = document.createElement("p");
