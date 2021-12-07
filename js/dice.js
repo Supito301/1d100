@@ -86,7 +86,7 @@ function roll() {
 		}
 
 		document.getElementById('log').insertBefore(dicelog, log.firstChild);
-		document.getElementById('counters').innerHTML = ("1 Criticals: " + c1s + ", Criticals: " + cs + "<br>100 Fumbles: " + f100s + ", Fumbles: " + fs)
+		document.getElementById('counters').innerHTML = (times + " Rolls did. <br>1 Criticals: " + c1s + ", Criticals: " + cs + "<br>100 Fumbles: " + f100s + ", Fumbles: " + fs)
 
 	}
 }
