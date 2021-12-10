@@ -11,6 +11,8 @@ fs = 0;
 f100s = 0;
 cs = 0;
 c1s = 0;
+ttl = 0;
+avg = 0;
 
 function roll() {
 	var dice;
@@ -28,6 +30,8 @@ function roll() {
 	if(count == 0) {
 		count = 40;
 		times++;
+		ttl += (dice + 1);
+		avg = Math.round((ttl / times) * 10) / 10;
 
 		if((dice + 1) <= 5) {
 			document.getElementById('result').innerHTML = ("<font color = #32CD32>CRITICAL!</font>");
@@ -66,27 +70,27 @@ function roll() {
 
 		if(cr) {
 			dicelog.innerHTML = (times + ": " + "<font color = #32CD32>" + (dice + 1) + "</font>");
-			document.getElementById('counters').innerHTML = (times + " Rolls did. <br>1 Criticals: " + c1s + ", <font color = #32CD32>Criticals: " + cs + "</font><br>100 Fumbles: " + f100s + ", Fumbles: " + fs);
+			document.getElementById('counters').innerHTML = (times + " Rolls did. <br>1 Criticals: " + c1s + ", <font color = #32CD32>Criticals: " + cs + "</font><br>100 Fumbles: " + f100s + ", Fumbles: " + fs + "<br>Total: " + ttl + ", Average: " + avg);
 			cr = 0;
 
 		} else if(fu) {
 			dicelog.innerHTML = (times + ": " + "<font color = #FF0000>" + (dice + 1) + "</font>");
-			document.getElementById('counters').innerHTML = (times + " Rolls did. <br>1 Criticals: " + c1s + ", Criticals: " + cs + "<br>100 Fumbles: " + f100s + ", <font color = #FF0000>Fumbles: " + fs + "</font>");
+			document.getElementById('counters').innerHTML = (times + " Rolls did. <br>1 Criticals: " + c1s + ", Criticals: " + cs + "<br>100 Fumbles: " + f100s + ", <font color = #FF0000>Fumbles: " + fs + "</font><br>Total: " + ttl + ", Average: " + avg);
 			fu = 0;
 
 		} else if(cr1) {
 			dicelog.innerHTML = (times + ": " + "<font color = #32CD32><b>1</b></font>");
-			document.getElementById('counters').innerHTML = (times + " Rolls did. <br><font color = #32CD32>1 Criticals: " + c1s + "</font>, <font color = #32CD32>Criticals: " + cs + "</font><br>100 Fumbles: " + f100s + ", Fumbles: " + fs);
+			document.getElementById('counters').innerHTML = (times + " Rolls did. <br><font color = #32CD32>1 Criticals: " + c1s + "</font>, <font color = #32CD32>Criticals: " + cs + "</font><br>100 Fumbles: " + f100s + ", Fumbles: " + fs + "<br>Total: " + ttl + ", Average: " + avg);
 			cr1 = 0;
 
 		} else if(f100) {
 			dicelog.innerHTML = (times + ": " + "<font color = #FF0000><b>100</b></font>");
-			document.getElementById('counters').innerHTML = (times + " Rolls did. <br>1 Criticals: " + c1s + ", Criticals: " + cs + "<br><font color = #FF0000>100 Fumbles: " + f100s + "</font>, <font color = #FF0000>Fumbles: " + fs + "</font>");
+			document.getElementById('counters').innerHTML = (times + " Rolls did. <br>1 Criticals: " + c1s + ", Criticals: " + cs + "<br><font color = #FF0000>100 Fumbles: " + f100s + "</font>, <font color = #FF0000>Fumbles: " + fs + "</font><br>Total: " + ttl + ", Average: " + avg);
 			f100 = 0;
 
 		} else {
 			dicelog.innerHTML = (times + ": " + (dice + 1));
-			document.getElementById('counters').innerHTML = (times + " Rolls did. <br>1 Criticals: " + c1s + ", Criticals: " + cs + "<br>100 Fumbles: " + f100s + ", Fumbles: " + fs);
+			document.getElementById('counters').innerHTML = (times + " Rolls did. <br>1 Criticals: " + c1s + ", Criticals: " + cs + "<br>100 Fumbles: " + f100s + ", Fumbles: " + fs + "<br>Total: " + ttl + ", Average: " + avg);
 
 		}
 
